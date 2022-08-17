@@ -27,12 +27,12 @@ try:
      fruityvice_input = streamlit.text_input('What fruit would you like information about?' , 'kiwi')
      if not fruityvice_input:
         streamlit.error("Please select a fruit to get information. ")
-      else:  
+     else:  
             fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"  + fruityvice_input )
             #streamlit.text(fruityvice_response.json())
             fruityvice_normalize = pandas.json_normalize(fruityvice_response.json())
             streamlit.dataframe(fruityvice_normalize)
-  except URLError as e:
+ except URLError as e:
     streamlit.error()
     
 streamlit.stop()
